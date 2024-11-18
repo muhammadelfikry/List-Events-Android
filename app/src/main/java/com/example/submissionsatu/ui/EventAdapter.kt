@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.submissionsatu.data.response.ListEventsItem
 import com.example.submissionsatu.databinding.ItemEventFinishedBinding
 
@@ -21,7 +22,10 @@ class EventAdapter : ListAdapter<ListEventsItem, EventAdapter.MyViewHolder>(DIFF
 
     class MyViewHolder(val binding: ItemEventFinishedBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(event: ListEventsItem){
-            binding.tvItem.text = "${event.name}\n- ${event.summary}"
+            binding.tvItem.text = event.name
+            Glide.with(binding.root.context)
+                .load(event.imageLogo)
+                .into(binding.tvImage)
         }
     }
 
