@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SubmissionSatu</string>
+    <string name="event_name">Name</string>
+    <string name="desc">Description</string>
+    <string name="time">Time</string>
+    <string name="quota">Quota</string>
+    <string name="owner">Owner Name</string>
+    <string name="btn_register">Register</string>
 </resources>

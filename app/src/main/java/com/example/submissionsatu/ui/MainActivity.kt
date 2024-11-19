@@ -1,5 +1,6 @@
 package com.example.submissionsatu.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -64,9 +65,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setEventData(listEvents: List<ListEventsItem>) {
-        val adapter = EventAdapter()
+        val adapter = EventAdapter { selectedEvent ->
+            val intent = Intent(this, DetailEventActivity::class.java).apply {
+                putExtra("EVENT_ID", selectedEvent.id)
+            }
+            startActivity(intent)
+        }
         adapter.submitList(listEvents)
         binding.rvEvent.adapter = adapter
+
+//        val adapter = EventAdapter()
+//        adapter.submitList(listEvents)
+//        binding.rvEvent.adapter = adapter
     }
 
     private fun showLoading(isLoading: Boolean) {
